@@ -1,6 +1,7 @@
 import React from 'react'
-import Layout from '../components/layout'
+import classnames from 'classnames'
 
+import Layout from '../components/layout'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
@@ -8,6 +9,7 @@ import Footer from '../components/Footer'
 class IndexPage extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
       isArticleVisible: false,
       timeout: false,
@@ -15,10 +17,62 @@ class IndexPage extends React.Component {
       article: '',
       loading: 'is-loading'
     }
-    this.handleOpenArticle = this.handleOpenArticle.bind(this)
-    this.handleCloseArticle = this.handleCloseArticle.bind(this)
-    this.setWrapperRef = this.setWrapperRef.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  setWrapperRef = node => {
+    this.wrapperRef = node;
+  }
+
+  handleOpenArticle = article => {
+    const { articleTimeout, isArticleVisible, timeout } = this.state
+
+    this.setState({
+      isArticleVisible: !isArticleVisible,
+      article
+    })
+
+    setTimeout(() => {
+      this.setState({
+        timeout: !timeout
+      })
+    }, 325)
+
+    setTimeout(() => {
+      this.setState({
+        articleTimeout: !articleTimeout
+      })
+    }, 350)
+
+  }
+
+  handleCloseArticle = () => {
+    const { articleTimeout, isArticleVisible, timeout } = this.state
+
+    this.setState({
+      articleTimeout: !articleTimeout
+    })
+
+    setTimeout(() => {
+      this.setState({
+        timeout: !timeout
+      })
+    }, 325)
+
+    setTimeout(() => {
+      this.setState({
+        isArticleVisible: !isArticleVisible,
+        article: ''
+      })
+    }, 350)
+
+  }
+
+  handleClickOutside = event => {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      if (this.state.isArticleVisible) {
+        this.handleCloseArticle();
+      }
+    }
   }
 
   componentDidMount () {
@@ -35,76 +89,41 @@ class IndexPage extends React.Component {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
-
-  handleOpenArticle(article) {
-
-    this.setState({
-      isArticleVisible: !this.state.isArticleVisible,
-      article
-    })
-
-    setTimeout(() => {
-      this.setState({
-        timeout: !this.state.timeout
-      })
-    }, 325)
-
-    setTimeout(() => {
-      this.setState({
-        articleTimeout: !this.state.articleTimeout
-      })
-    }, 350)
-
-  }
-
-  handleCloseArticle() {
-
-    this.setState({
-      articleTimeout: !this.state.articleTimeout
-    })
-
-    setTimeout(() => {
-      this.setState({
-        timeout: !this.state.timeout
-      })
-    }, 325)
-
-    setTimeout(() => {
-      this.setState({
-        isArticleVisible: !this.state.isArticleVisible,
-        article: ''
-      })
-    }, 350)
-
-  }
-
-  handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      if (this.state.isArticleVisible) {
-        this.handleCloseArticle();
-      }
-    }
-  }
-
   render() {
+    const { location } = this.props
+
+    const {
+      article,
+      articleTimeout,
+      isArticleVisible,
+      loading,
+      timeout
+    } = this.state
+
     return (
-      <Layout location={this.props.location}>
-        <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
+      <Layout location={location}>
+        <div className={classnames({
+            'body': true,
+            'is-loading': !!loading,
+            'is-article-visible': isArticleVisible
+        })}>
           <div id="wrapper">
-            <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
+            <Header
+              onOpenArticle={this.handleOpenArticle}
+              timeout={timeout}
+            />
+
             <Main
-              isArticleVisible={this.state.isArticleVisible}
-              timeout={this.state.timeout}
-              articleTimeout={this.state.articleTimeout}
-              article={this.state.article}
+              isArticleVisible={isArticleVisible}
+              timeout={timeout}
+              articleTimeout={articleTimeout}
+              article={article}
               onCloseArticle={this.handleCloseArticle}
               setWrapperRef={this.setWrapperRef}
             />
-            <Footer timeout={this.state.timeout} />
+            <Footer timeout={timeout} />
           </div>
+
           <div id="bg"></div>
         </div>
       </Layout>
