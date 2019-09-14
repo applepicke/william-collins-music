@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import defaultImg from '../images/songs/castle.svg'
 
@@ -7,23 +7,21 @@ const Song = props => {
     img,
     name,
     src,
-    triggerPlay
   } = props
-
-  const [ playing, setPlaying ] = useState(false)
 
   return (
     <div className='song'>
       <div className='song-details'>
         <img
+          alt=""
           className='song-img'
           src={img || defaultImg}
           style={{
-            'margin-right': '12px',
+            marginRight: '12px',
             width: '64px',
             height: '64px',
             padding: img ? '0' : '8px',
-            'border-radius': '8px'
+            borderRadius: '8px'
           }}
         />
 

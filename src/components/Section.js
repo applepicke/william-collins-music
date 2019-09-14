@@ -28,7 +28,7 @@ const Section = props => {
 
       <div
         className="close"
-        onClick={onCloseArticle}
+        onClick={() => onCloseArticle()}
       />
     </article>
   )

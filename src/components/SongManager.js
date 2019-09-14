@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Song from './Song'
 
 // Song images
@@ -14,7 +14,6 @@ import retribution from '../songs/retribution.mp3'
 import silentLight from '../songs/silent-light.mp3'
 import asTheyFellFromTheSky from '../songs/as-they-fell-from-the-sky.mp3'
 import iveGotAnIdea from '../songs/ive-got-an-idea.mp3'
-import fuckinJosh from '../songs/fuckin-josh.mp3'
 import buildUpTheBase from '../songs/build-up-the-base-overworld.mp3'
 import doubt from '../songs/doubt.mp3'
 import gascreepsFortune from '../songs/gascreeps-fortune.mp3'
@@ -50,18 +49,13 @@ const SONGS = [{
   src: iveGotAnIdea
 }]
 
-const SongManager = props => {
-  const {
-
-  } = props
-
-  const [ currentSong, setCurrentSong ] = useState(null)
-
+const SongManager = () => {
   return (
     <div className='song-manager'>
       {SONGS.map(song => {
         return (
           <Song
+            key={song.src}
             name={song.name}
             img={song.img}
             src={song.src}
@@ -70,10 +64,6 @@ const SongManager = props => {
       })}
     </div>
   )
-}
-
-SongManager.propTypes = {
-
 }
 
 export default SongManager

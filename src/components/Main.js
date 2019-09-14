@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Section from './Section'
 import SongManager from './SongManager'
+import ContactForm from './ContactForm'
 
 class Main extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class Main extends React.Component {
       article,
       articleTimeout,
       onCloseArticle,
-      route,
+      onOpenArticle,
       setWrapperRef,
       timeout,
     } = this.props
@@ -35,10 +36,26 @@ class Main extends React.Component {
           article={article}
           articleTimeout={articleTimeout}
           onCloseArticle={onCloseArticle}
-          title='Licensing'
+          title='Services'
         >
-          <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+          <h4>Adaptive Music & Sound</h4>
+          <p>
+            Your game deserves more than just a few catchy tunes and some gunshot sounds. The best games are able to use music and audio to lend service to the gameplay in ways that other media simply cannot. With my software engineering background, my job doesn't end with a zipped folder of audio files. I'm not afraid to dive headfirst into your codebase and do some truly creative things.
+          </p>
+
+          <h4>Custom Music & Sound</h4>
+          <p>
+            Whether you're creating a compelling emotional story about Two Brothers, or a power-fueled shoot-their-faces-off Doom clone, you already know that the music sets the stage. Only the music can reach directly into your brain and stimulate your emotion sack. Whatever your design goals, I would love to hear about your project. Hit me up using the
+            &nbsp;<a href="/contact" onClick={e => { e.preventDefault(); onCloseArticle(() => onOpenArticle('contact'))}}><b>Contact</b></a>&nbsp;
+            form and we can go from there.
+          </p>
+
+          <h4>Catalogue Music</h4>
+          <p>
+            The pieces in the
+            &nbsp;<a href="/music" onClick={e => { e.preventDefault(); onCloseArticle(() => onOpenArticle('music'))}}><b>Music</b></a>&nbsp;
+            section are meant to highlight the versatility of my work. In my opinion, video games are special creations that can only deliver a compelling experience with audio custom tailored to deliver on the creator's vision. However, if you're on a tight budget or just doing some prototyping, I offer licensing for any music in my larger catalogue.
+          </p>
         </Section>
 
         <Section
@@ -47,7 +64,19 @@ class Main extends React.Component {
           onCloseArticle={onCloseArticle}
           title='About'
         >
-          <p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+          <p>
+            I'm William Collins, a software engineer, composer and sound designer from the frigid land of Ottawa, Canada.
+          </p>
+
+          <p>
+            Whether you're working on the next Dark Souls, Celeste or SimAnt, I want to help. I have a deep-rooted <b>passion</b> for creating an audio <b>experience</b> that services the deeper themes and tone of your game.
+          </p>
+
+          <p>
+            Most importantly, I believe in the old-fashioned values of honesty, integrity & professionalism, and expect the same from those I work with. Fill out the
+            &nbsp;<a href="/contact" onClick={e => { e.preventDefault(); onCloseArticle(() => onOpenArticle('contact'))}}><b>Contact</b></a>&nbsp;
+            form and tell me what you're working on, and we can see if we would be a good fit :)
+          </p>
         </Section>
 
         <Section
@@ -56,31 +85,7 @@ class Main extends React.Component {
           onCloseArticle={onCloseArticle}
           title='Contact'
         >
-          <form method="post" action="#">
-            <div className="field half first">
-              <label htmlFor="name">Name</label>
-              <input type="text" name="name" id="name" />
-            </div>
-            <div className="field half">
-              <label htmlFor="email">Email</label>
-              <input type="text" name="email" id="email" />
-            </div>
-            <div className="field">
-              <label htmlFor="message">Message</label>
-              <textarea name="message" id="message" rows="4"></textarea>
-            </div>
-            <ul className="actions">
-              <li><input type="submit" value="Send Message" className="special" /></li>
-              <li><input type="reset" value="Reset" /></li>
-            </ul>
-          </form>
-
-          <ul className="icons">
-            <li><a href="#" className="icon fa-twitter"><span className="label">Twitter</span></a></li>
-            <li><a href="#" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
-            <li><a href="#" className="icon fa-instagram"><span className="label">Instagram</span></a></li>
-            <li><a href="#" className="icon fa-github"><span className="label">GitHub</span></a></li>
-          </ul>
+          <ContactForm />
         </Section>
       </div>
     )
