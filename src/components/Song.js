@@ -13,20 +13,8 @@ const Song = props => {
   const [ playing, setPlaying ] = useState(false)
 
   return (
-    <div
-      className='song'
-      style={{
-        display: 'flex',
-        'justify-content': 'space-between',
-        'align-items': 'center',
-        padding: '8px 0'
-      }}
-    >
-      <div style={{
-        display: 'flex',
-        'justify-content': 'space-between',
-        'align-items': 'center'
-      }}>
+    <div className='song'>
+      <div className='song-details'>
         <img
           className='song-img'
           src={img || defaultImg}

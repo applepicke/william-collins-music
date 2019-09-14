@@ -35,6 +35,9 @@ const SONGS = [{
   name: 'Doubt',
   src: doubt
 }, {
+  name: 'Build up the Base: Overworld',
+  src: buildUpTheBase
+}, {
   name: 'Gascreep\'s Fortune',
   img: gascreepsFortuneImg,
   src: gascreepsFortune
@@ -45,12 +48,6 @@ const SONGS = [{
   name: 'I\'ve got an idea',
   img: iveGotAnIdeaImg,
   src: iveGotAnIdea
-}, {
-  name: 'Build up the Base: Overworld',
-  src: buildUpTheBase
-}, {
-  name: 'Fuckin\' Josh',
-  src: fuckinJosh
 }]
 
 const SongManager = props => {
