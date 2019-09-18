@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-
+import Logo from './Logo'
 
 const Header = props => {
     const { onOpenArticle } = props
@@ -14,7 +13,7 @@ const Header = props => {
     return (
         <header id="header" style={props.timeout ? {display: 'none'} : {}}>
             <div className="logo">
-                <span className="icon fa-music"></span>
+                <Logo colour="white" />
             </div>
             <div className="content">
                 <div className="inner">
