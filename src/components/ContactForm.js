@@ -28,10 +28,9 @@ const ContactForm = () => {
       </form>
 
       <ul className="icons">
-        <li><a href="#" className="icon fa-twitter"><span className="label">Twitter</span></a></li>
-        <li><a href="#" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
-        <li><a href="#" className="icon fa-instagram"><span className="label">Instagram</span></a></li>
-        <li><a href="#" className="icon fa-github"><span className="label">GitHub</span></a></li>
+        <li><a href="https://www.facebook.com/williamcollinsmusic" target="_blank" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
+        <li><a href="https://www.youtube.com/channel/UCUnR2NV1dPAfvHs2Gx8MP3Q" target="_blank" className="icon fa-youtube"><span className="label">Youtube</span></a></li>
+        <li><a href="https://soundcloud.com/applepicke" target="_blank" className="icon fa-soundcloud"><span className="label">Soundcloud</span></a></li>
       </ul>
     </React.Fragment>
   )

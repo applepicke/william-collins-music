@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Section from './Section'
 import SongManager from './SongManager'
 import ContactForm from './ContactForm'
+import studio from '../images/studio.jpg'
 
 class Main extends React.Component {
   render() {
@@ -67,6 +68,15 @@ class Main extends React.Component {
           <p>
             I'm William Collins, a software engineer, composer and sound designer from the frigid land of Ottawa, Canada.
           </p>
+
+          <img
+            alt="William Collins in his music studio"
+            src={studio}
+            style={{
+              width: '100%',
+              margin: '-16px 0 12px'
+            }}
+          />
 
           <p>
             Whether you're working on the next Dark Souls, Celeste or SimAnt, I want to help. I have a deep-rooted <b>passion</b> for creating an audio <b>experience</b> that services the deeper themes and tone of your game.
