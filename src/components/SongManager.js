@@ -17,8 +17,12 @@ import iveGotAnIdea from '../songs/ive-got-an-idea.mp3'
 import buildUpTheBase from '../songs/build-up-the-base-overworld.mp3'
 import doubt from '../songs/doubt.mp3'
 import gascreepsFortune from '../songs/gascreeps-fortune.mp3'
+import lostMemories from '../songs/Lost Memories.mp3'
 
 const SONGS = [{
+  name: 'Lost Memories',
+  src: lostMemories
+}, {
   name: 'Dinonaut: Defender of Celestial Dwarfs',
   img: dinonautImg,
   src: dinonaut
