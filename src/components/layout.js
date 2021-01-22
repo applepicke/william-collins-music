@@ -44,6 +44,7 @@ const Layout = ({ children, location }) => {
             meta={[
               { name: 'description', content: 'Sample' },
               { name: 'keywords', content: 'sample, something' },
+              { name: 'google-site-verification', content: 'EKSZmb5IRLEqMyM_AVPa5wsCXSBqYdEEs6008GOtcYQ' }
             ]}
             link={[
               { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }
